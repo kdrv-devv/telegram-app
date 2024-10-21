@@ -1,0 +1,299 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;800;900&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(135deg, #6e9fd3, #b0d0f0);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.Login-page {
+  width: 100%;
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(to right, #6e9fd3, #b3d7ff);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.telegram-content {
+  display: none;
+}
+
+.login-con {
+  width: 300px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+/* From Uiverse.io by aboalsim114 */
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background: linear-gradient(to bottom, #0077be, #3b8df2);
+  border-radius: 10px;
+  overflow: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transform: rotateX(-10deg);
+  transition: all 0.3s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  animation: form-animation 0.5s ease-in-out;
+}
+
+@keyframes form-animation {
+  from {
+    transform: rotateX(-30deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+.input {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  color: rgb(255, 255, 255);
+  border: 2px solid #3b8df2;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.input::placeholder {
+  color: #fff;
+}
+
+.input:hover,
+.input:focus {
+  border-color: #3b8df2;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05) rotateY(20deg);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+
+#loginBtn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3b8df2;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transform: rotateX(-10deg);
+  transition: all 0.3s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+#loginBtn:hover {
+  background-color: #0077be;
+  font-size: 17px;
+  transform: scale(1.05) rotateY(20deg) rotateX(10deg);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.header > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px;
+  box-shadow: 0 0px 0 0 #a6a6aa;
+  background: #f6f6f6;
+}
+
+.header-left a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 30px;
+  color: black;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.header-center h6 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #000;
+}
+.header-center p {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 138%;
+  letter-spacing: 0em;
+  color: #787878;
+}
+
+.header-right {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  display: flex;
+}
+.header-right img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.message-box > div {
+  min-height: 900px;
+  background: url(../imges/bg-message-box.png);
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.aziz-bro-message {
+  margin-top: 30px;
+  margin-left: 10px;
+  max-width: 60%;
+  height: auto;
+  background-color: #fff;
+  border-radius: 5px 15px 15px 3px;
+  padding: 10px 10px;
+  align-self: self-start;
+}
+.aziz-bro-message p {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #000;
+}
+
+.shaxsiy-message {
+  margin-top: 30px;
+  margin-left: 10px;
+  max-width: 60%;
+  height: auto;
+  background-color: #e1fec6;
+  border-radius: 15px 5px 5px 13px;
+  padding: 10px 10px;
+  align-self: self-end;
+  margin-right: 10px;
+}
+.shaxsiy-message p {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #000;
+}
+
+.footer {
+  position: sticky;
+  z-index: 99;
+  bottom: 0;
+}
+
+.footer > div {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0px 0 0 #a6a6aa;
+  background: #f6f6f6;
+  padding: 0 10px;
+}
+
+.footer-left button {
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  color: #858e99;
+  font-size: 20px;
+}
+
+.footer-center {
+  width: 80%;
+  height: 33px;
+}
+.footer-center form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #d1d1d6;
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background: #fff;
+}
+.footer-center form input {
+  border: none;
+  outline: none;
+  font-size: 17px;
+  padding-left: 10px;
+}
+.footer-center form input ::placeholder {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #aeaeb2;
+}
+.footer-center form button {
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  font-size: 20px;
+  color: #858e99;
+}
+
+.footer-right button {
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  font-size: 23px;
+  color: #858e99;
+}
+
+/*# sourceMappingURL=style.css.map */

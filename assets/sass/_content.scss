@@ -1,0 +1,50 @@
+.message-box>div{
+    min-height: 900px;
+    background: url(../imges/bg-message-box.png);
+    background-size: contain;
+    background-position: center;
+    display: flex;
+    flex-direction: column;  
+}
+
+
+.aziz-bro-message{
+    margin-top: 30px;
+    margin-left: 10px;
+    max-width:60%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 5px 15px 15px 3px;
+    padding: 10px 10px;
+    align-self: self-start;
+    p{
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 129%;
+        letter-spacing: -0.02em;
+        color: #000;
+    }
+
+}
+
+
+.shaxsiy-message{
+    margin-top: 30px;
+    margin-left: 10px;
+    max-width:60%;
+    height: auto;
+    background-color: #e1fec6;
+    border-radius: 15px 5px 5px 13px;
+    padding: 10px 10px;
+    align-self: self-end;
+    margin-right: 10px;
+    p{
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 129%;
+        letter-spacing: -0.02em;
+        color: #000;
+    }
+
+}
+
