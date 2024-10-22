@@ -41,7 +41,7 @@ a {
 }
 
 .telegram-content {
-  display: none;
+  display: block;
 }
 
 .login-con {
@@ -144,7 +144,7 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 30px;
+  font-size: 23px;
   color: black;
 }
 
