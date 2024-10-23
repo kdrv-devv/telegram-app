@@ -1,122 +1,4 @@
-// let apiSarvarbek = `https://6715fa1733bc2bfe40bbca78.mockapi.io/Sarvarbek`;
-// let apiAzizbro = `https://6715fa1733bc2bfe40bbca78.mockapi.io/Azizakam`;
-
-// //  input malumotlar
-// let userInput = document.querySelector("#userInput");
-// let sendBtn = document.getElementById("sendBtn");
-
-// // malumot chiqdigan joy
-// let messageContainer = document.querySelector(".messages");
-
-// // bosilganda post boladigan button
-// sendBtn.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   if (userInput.value !== "") {
-//     postAziz();
-//     console.log(userInput.value);
-//   }
-//   userInput.value = "";
-// });
-
-// // Aziz akamga post qilsh funksiysasi
-// function postAziz() {
-//   fetch(apiAzizbro, {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({
-//       text: userInput.value,
-//     }),
-//   })
-//     .then((data) => data.json())
-//     .then((data) => {
-//       console.log(data);
-//     })
-//     .catch((error) => console.log(error.massage));
-// }
-
-// // Aziz akam malumotiniget qilib oladigan funksiyam
-// fetch(apiSarvarbek)
-//   .then((data) => data.json())
-//   .then((data) => getAziz(data))
-//   .catch((error) => console.log(error));
-
-// function getAziz(data) {
-//   data.forEach((element) => {
-//     messageContainer.innerHTML += `
-        
-//             <div class="aziz-bro-message">
-//                 <p>${element.text}</p>
-//             </div>
-
-//         `;
-//   });
-// }
-
-// // o'zim malumotimchi chiqaradigan joy
-
-// fetch(apiAzizbro)
-//   .then((data) => data.json())
-//   .then((data) => getSarvar(data))
-//   .catch((error) => console.log(error));
-
-// function getSarvar(data) {
-//   if (data.length === data.length + 1) {
-//     location.reload();
-//   }
-
-//   data.forEach((element) => {
-//     messageContainer.innerHTML += `
-        
-         
-//             <div class="shaxsiy-message">
-//                 <p>${element.text}</p>
-//             </div>
-
-//         `;
-//   });
-// }
-
-
-
-// // login uchun
-
-// let login = document.querySelector("#login")
-
-// let loginBtn = document.querySelector("#loginBtn")
-// let loginPage = document.querySelector(".Login-page")
-// let tgConten = document.querySelector(".telegram-content")
-
-
-// loginBtn.addEventListener("click",(e)=>{
-//     e.preventDefault()
-//     console.log(login.value);
-    
-//     if(login.value == "kdrv"){
-//         loginPage.style.display = "none"
-//         tgConten.style.display = "block"
-//     }
-
-
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-//  test uchun 
-
-
-
-
-
-let apiSarvarbek = `https://6716b3593fcb11b265d35fa3.mockapi.io/data`;
+let apiSarvarbek = `https://67172d90b910c6a6e026d725.mockapi.io/mesage/telgram`;
 
 //  input malumotlar
 let userInput = document.querySelector("#userInput");
@@ -127,7 +9,6 @@ let messageContainer = document.querySelector(".messages");
 
 // bosilganda post boladigan button
 sendBtn.addEventListener("click", (e) => {
-    // location.reload()
   e.preventDefault();
   if (userInput.value !== "") {
     postAziz();
@@ -142,7 +23,9 @@ function postAziz() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       text: userInput.value,
-      ID:1
+      ID: 1,
+      date: date(),
+      del: Date.now(),
     }),
   })
     .then((data) => data.json())
@@ -150,6 +33,14 @@ function postAziz() {
       console.log(data);
     })
     .catch((error) => console.log(error.massage));
+}
+
+function date() {
+  let date = new Date();
+  let hour = date.getHours() > 10 ? 0 + date.getHours() : date.getHours();
+  let minute =
+    date.getMinutes() > 10 ? 0 + date.getMinutes() : date.getMinutes();
+  return `${hour}:${minute}`;
 }
 
 // Aziz akam malumotini get qilib oladigan funksiyam
@@ -160,67 +51,46 @@ fetch(apiSarvarbek)
 
 function getAziz(data) {
   data.forEach((element) => {
-    if(element.ID === 1){
-     messageContainer.innerHTML += `
-             <div class="shaxsiy-message">
-                 <p>${element.text}</p>
+    if (element.ID === 1) {
+      messageContainer.innerHTML += `
+             <div  class="shaxsiy-message">
+                 <p id="${Date.now()}">${element.text}</p>
              </div>
          `;
-
-    }else if(element.ID === 2){
-        messageContainer.innerHTML += `        
+    } else if (element.ID === 2) {
+      messageContainer.innerHTML += `        
         <div class="aziz-bro-message">
             <p>${element.text}</p>
         </div>
     `;
     }
   });
+
+
+  let xabarOynasi = document.querySelectorAll(".shaxsiy-message");
+
+  xabarOynasi.forEach((element) => {
+    element.addEventListener("mousedown", function (e) {
+
+      pressTimer = setTimeout(function () {
+        let deleteChek = confirm("Bu xabarni o'chirmoqchimisz ?");
+        if(deleteChek){
+          deleteData(e.target.id)
+        }
+      }, 700);
+    });
+    element.addEventListener("mouseup", function () {
+      clearTimeout(pressTimer);
+    });
+
+    element.addEventListener("mouseleave", function () {
+      clearTimeout(pressTimer);
+    });
+  });
 }
 
-// o'zim malumotimchi chiqaradigan joy
 
-// fetch(apiAzizbro)
-//   .then((data) => data.json())
-//   .then((data) => getSarvar(data))
-//   .catch((error) => console.log(error));
-
-// function getSarvar(data) {
-//   if (data.length === data.length + 1) {
-//     location.reload();
-//   }
-
-//   data.forEach((element) => {
-//     messageContainer.innerHTML += `
-        
-         
-//             <div class="shaxsiy-message">
-//                 <p>${element.text}</p>
-//             </div>
-
-//         `;
-//   });
-// }
+function deleteData(id) {
 
 
-
-// login uchun
-
-// let login = document.querySelector("#login")
-
-// let loginBtn = document.querySelector("#loginBtn")
-// let loginPage = document.querySelector(".Login-page")
-// let tgConten = document.querySelector(".telegram-content")
-
-
-// loginBtn.addEventListener("click",(e)=>{
-//     e.preventDefault()
-//     console.log(login.value);
-    
-//     if(login.value == "kdrv"){
-//         loginPage.style.display = "none"
-//         tgConten.style.display = "block"
-//     }
-
-
-// })
-
+}
