@@ -12,8 +12,8 @@ sendBtn.addEventListener("click", (e) => {
   e.preventDefault();
   if (userInput.value !== "") {
     postAziz();
+    userInput.value = "";
   }
-  userInput.value = "";
 });
 
 // Aziz akamga post qilsh funksiysasi
@@ -31,15 +31,16 @@ function postAziz() {
     .then((data) => data.json())
     .then((data) => {
       console.log(data);
+      location.reload();
     })
-    .catch((error) => console.log(error.massage));
+    .catch((error) => console.log(error.message));
 }
 
 function date() {
   let date = new Date();
-  let hour = date.getHours() > 10 ? 0 + date.getHours() : date.getHours();
+  let hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
   let minute =
-    date.getMinutes() > 10 ? 0 + date.getMinutes() : date.getMinutes();
+    date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
   return `${hour}:${minute}`;
 }
 
@@ -53,30 +54,34 @@ function getAziz(data) {
   data.forEach((element) => {
     if (element.ID === 1) {
       messageContainer.innerHTML += `
-             <div  class="shaxsiy-message">
-                 <p id="${Date.now()}">${element.text}</p>
-             </div>
+                 <div class="shaxsiy-message">
+                <p id="${element.id}">${element.text}</p>
+                <div class="edit-modal">
+                    <button data-id="${element.id}" id="edit-btn">Edit</button>
+                    <button data-id="${element.id}" id="delete-btn">Delete</button>
+                </div>
+            </div>
          `;
     } else if (element.ID === 2) {
       messageContainer.innerHTML += `        
-        <div class="aziz-bro-message">
-            <p>${element.text}</p>
-        </div>
+      <div class="aziz-bro-message">
+                <p id="${element.id}">${element.text}</p>
+                <div class="edit-modal">
+                    <button data-id="${element.id}" id="edit-btn">Edit</button>
+                    <button data-id="${element.id}" id="delete-btn">Delete</button>
+                </div>
+            </div>
     `;
     }
   });
-
 
   let xabarOynasi = document.querySelectorAll(".shaxsiy-message");
 
   xabarOynasi.forEach((element) => {
     element.addEventListener("mousedown", function (e) {
-
-      pressTimer = setTimeout(function () {
-        let deleteChek = confirm("Bu xabarni o'chirmoqchimisz ?");
-        if(deleteChek){
-          deleteData(e.target.id)
-        }
+      let pressTimer = setTimeout(function () {
+        let modal = element.querySelector(".edit-modal");
+        modal.style.display = "flex";
       }, 700);
     });
     element.addEventListener("mouseup", function () {
@@ -89,8 +94,75 @@ function getAziz(data) {
   });
 }
 
+let xabarOynasiAziz = document.querySelectorAll(".aziz-bro-message");
 
-function deleteData(id) {
+xabarOynasiAziz.forEach((element) => {
+  element.addEventListener("mousedown", function (e) {
+    let pressTimer = setTimeout(function () {
+      let modal = element.querySelector(".edit-modal");
+      modal.style.display = "flex";
+    }, 500);
+  });
+  element.addEventListener("mouseup", function () {
+    clearTimeout(pressTimer);
+  });
+
+  element.addEventListener("mouseleave", function () {
+    clearTimeout(pressTimer);
+  });
+});
+
+// umumiy containerga event listener qo'yamiz
+messageContainer.addEventListener("click", function (e) {
+  if (e.target && e.target.id === "delete-btn") {
+    let dataId = e.target.getAttribute("data-id");
+    deleteData(dataId);
+  }
+});
 
 
+function deleteData(delData) {
+  fetch(`${apiSarvarbek}/${delData}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Something went wrong");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Deleted:", data);
+      document.getElementById(delData).parentElement.remove();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
+messageContainer.addEventListener("click", function (e) {
+  if (e.target && e.target.id === "edit-btn") {
+    let dataId = e.target.getAttribute("data-id");
+    let newMessage = prompt("Matinni taxrirlang !");
+    if (newMessage) {
+      editData(dataId, newMessage);
+    }
+  }
+});
+
+function editData(id, newmesage) {
+  fetch(`${apiSarvarbek}/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text: newmesage }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      location.reload()
+    })
+    .catch((error) => {
+      console.log("xato");
+    });
 }
