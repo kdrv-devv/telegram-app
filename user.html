@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/user.css">
+    <title>User</title>
+</head>
+<body>
+  
+
+    <section class="user">
+        <div class="container qr">
+            <div class="exit">
+                <div class="exit-left">
+                   <button id="exit-btn"> <i class="fa-solid fa-arrow-left"></i></button>
+                    <p>Info</p>
+                </div>
+                <div class="exit-right">
+                    <button id="qr-code"><i class="fa-solid fa-qrcode"></i></button>
+                    <button id="exit-btn"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+            
+            <div class="profil-photo">
+                <div class="image-div">
+                    <img src="./assets/imges/azizakam.jpg" alt="">
+                    <p>Aziz bro</p>
+                    <p class="online"></p>
+                </div>
+            </div>
+
+
+            <!-- bio -->
+             <div class="bio">
+                <p> Aziziy: xayotda doim yutganlar g'alaba qozonadi </p>
+                <p class="qolgani">22</p>
+             </div>
+
+
+             <div class="data">
+                <p>Any detalis such as age , occupation or <br> city. Example:23 y.o. ddesigner from San Francisco</p>
+             </div>
+
+
+             <!--user data -->
+
+            <div class="user-data">
+                <div class="name">
+                    <h5><i class="fa-regular fa-circle-user"></i>  Name</h5>
+                    <p id="user-name"></p>
+                </div>
+                <div class="phone-number">
+                    <h5><i class="fa-solid fa-phone"></i> Phone number</h5>
+                    <p id="user-number"></p>
+                </div>
+
+                <div class="username">
+                    <h5><i class="fa-solid fa-at"></i> Username</h5>
+                    <p>@kdrv_sb</p>
+                </div>
+
+            </div>
+
+
+            
+            <div class="data">
+                <p>Username lets people cotact you on Telegram without <br>
+                    needing your phone number
+                </p>
+             </div>
+
+
+             <div class="channel">
+                <h5><i class="fa-solid fa-wifi"></i> Personal channel</h5>
+                <p>Add</p>
+            </div>
+
+            <div class="channel">
+                <h5><i class="fa-solid fa-gift"></i> Date of Birth</h5>
+                <p>Add</p>
+            </div>
+
+            <div class="data">
+                <p>Only your contacts can see youu birthday <a href="">Change ></a>
+                </p>
+             </div>
+
+
+
+        </div>
+    </section>
+
+    
+
+
+    <script src="./assets/scripts/user.js"></script>
+</body>
+</html>

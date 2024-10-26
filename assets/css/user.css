@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;800;900&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(135deg, #6e9fd3, #b0d0f0);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+
+
+
+.user>div{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #ffffff5b;
+
+}
+
+.exit{
+    display: flex;
+    align-items: center;
+    padding: 20px 10px;
+    justify-content: space-between;
+}
+.exit-left{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.exit-left button{
+    color: #fff;
+    font-size: 24px;
+}
+.exit-left p{
+    color: #fff;
+    font-size: 23px;
+}
+
+.exit-right{
+    display: flex;
+    align-items:center;
+    gap: 20px;
+}
+
+#qr-code{
+    font-size: 20px;
+    color: #fff
+}
+#exit-btn{
+    font-size: 20px;
+    color: #fff;
+}
+
+
+.profil-photo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-div{
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.image-div img{
+    width: 100px;
+    border-radius: 100%;
+    height: 100px;
+}
+
+.image-div p{
+    font-size: 20px;
+    color: #fff;
+}
+.image-div .online{
+    font-size: 13px;
+    color: aqua;
+}
+
+
+.bio{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-top: 40px;
+}
+
+.bio p{
+    font-size: 18px ;
+    color: #fff;
+}
+.bio .qolgani{
+    font-size: 17px;
+    color: rgba(128, 128, 128, 0.726);
+}
+/*  */
+
+
+.data{
+    text-align: start;
+    width: 100%;
+    height: 50px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: rgba(163, 160, 160, 0.175);
+}
+.data p{
+    font-size: 15px;
+    color: rgba(218, 214, 214, 0.86);
+}
+
+.user-data{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.name,.phone-number,.username,.channel{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+
+.name h5,.phone-number h5,.username h5 ,.channel h5{
+
+    font-size: 18px;
+    color: #fff;
+    display: flex;
+    gap: 10px;
+    font-weight: 400;
+}
+
+.name p,.phone-number p,.username p ,.channel p{
+    font-size: 16px;
+    color: aqua;
+}
+
+.channel{
+    margin-top: 30px;
+}
+
+
+.data a{
+    color: aqua;
+}
+
+
+
+
+
+.qr-code{
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    background-color: rgba(128, 128, 128, 0.756);
+}
+
