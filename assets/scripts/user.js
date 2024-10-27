@@ -29,9 +29,11 @@ function showUserdata(data) {
   });
 }
 
+
 editName.addEventListener("click", function () {
   editNamee();
 });
+
 
 if (navigator.onLine) {
   connect.textContent = "online";
@@ -63,4 +65,7 @@ function editNamee() {
     body: JSON.stringify({ name: newName }),
   });
 }
+
+
+
 
