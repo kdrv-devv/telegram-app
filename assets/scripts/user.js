@@ -10,8 +10,10 @@ let exitBtn = document.querySelector("#exit-btn");
 let qrCodeBtn = document.querySelector("#qr-code");
 let qr = document.querySelector(".qr");
 let editName = document.querySelector(".name");
-
 let qrcodefinish = document.querySelector("#qrcode");
+
+
+
 function showUserdata(data) {
   data.forEach((element) => {
     userName.textContent = element.name;
